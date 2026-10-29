@@ -152,6 +152,11 @@ app.get('/series', (req, res) => {
   res.json(series);
 });
 
+app.get('/erro', (req, res) => {
+  console.log("request at /erro");
+  res.send(series);
+});
+
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
