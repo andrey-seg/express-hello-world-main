@@ -1,6 +1,81 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
+const pokemons = [
+  [
+  {
+    "posicao": 1,
+    "nome": "Pikachu",
+    "episodio": "EP001 - Pokémon, Eu Escolho Você!",
+    "metodo_obtencao": "Recebido do Professor Carvalho como Pokémon inicial",
+    "tipo": ["Elétrico"]
+  },
+  {
+    "posicao": 2,
+    "nome": "Caterpie",
+    "episodio": "EP003 - Ash Pega um Pokémon!",
+    "metodo_obtencao": "Primeira captura selvagem na Floresta de Viridian",
+    "tipo": ["Inseto"]
+  },
+  {
+    "posicao": 3,
+    "nome": "Pidgeotto",
+    "episodio": "EP003 - Ash Pega um Pokémon!",
+    "metodo_obtencao": "Capturado selvagem na Floresta de Viridian",
+    "tipo": ["Normal", "Voador"]
+  },
+  {
+    "posicao": 4,
+    "nome": "Bulbasaur",
+    "episodio": "EP010 - Bulbasaur e a Vila Escondida",
+    "metodo_obtencao": "Entrou para a equipe após batalhar para defender a Vila Escondida",
+    "tipo": ["Grama", "Venenoso"]
+  },
+  {
+    "posicao": 5,
+    "nome": "Charmander",
+    "episodio": "EP011 - Charmander, o Pokémon Perdido",
+    "metodo_obtencao": "Resgatado após ter sido abandonado pelo treinador Damian",
+    "tipo": ["Fogo"]
+  },
+  {
+    "posicao": 6,
+    "nome": "Squirtle",
+    "episodio": "EP012 - A Esquadra de Squirtle",
+    "metodo_obtencao": "Entrou voluntariamente para a equipe como líder do Esquadrão Squirtle",
+    "tipo": ["Água"]
+  },
+  {
+    "posicao": 7,
+    "nome": "Krabby",
+    "episodio": "EP013 - O Mistério do Farol",
+    "metodo_obtencao": "Capturado na praia e enviado ao laboratório por limite de equipe",
+    "tipo": ["Água"]
+  },
+  {
+    "posicao": 8,
+    "nome": "Primeape",
+    "episodio": "EP025 - Primeape Vai à Loucura!",
+    "metodo_obtencao": "Capturado após evoluir de Mankey na Rota 7",
+    "tipo": ["Lutador"],
+    "observacao": "No EP015, Ash trocou temporariamente Butterfree por um Raticate, mas desfez a troca no mesmo episódio."
+  },
+  {
+    "posicao": 9,
+    "nome": "Muk",
+    "episodio": "EP030 - A Operação Desentupimento",
+    "metodo_obtencao": "Capturado na usina e enviado ao laboratório do Prof. Carvalho devido ao cheiro forte",
+    "tipo": ["Venenoso"]
+  },
+  {
+    "posicao": 10,
+    "nome": "Tauros",
+    "episodio": "EP035 - A Lenda de Dratini",
+    "metodo_obtencao": "Capturado na Zona de Safári (Ash capturou um bando de 30 Tauros acidentalmente)",
+    "tipo": ["Normal"]
+  }
+]
+]
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
@@ -20,6 +95,11 @@ app.get('/meunome', (req, res) => {
 app.get('/tico', (req, res) => {
   console.log("request at /tico");
   res.send('teco')
+});
+
+app.get('/pokemon', (req, res) => {
+  console.log("request at /pokemon");
+  res.send(pokemons.json());
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
