@@ -220,4 +220,3 @@ const html = `
   </body>
 </html>
 `
-const viaCep = ``
