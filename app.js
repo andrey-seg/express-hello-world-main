@@ -154,7 +154,7 @@ app.get('/series', (req, res) => {
 
 app.get('/erro', (req, res) => {
   console.log("request at /erro");
-  res.send(series);
+  res.send(JSON(series));
 });
 
 
