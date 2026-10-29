@@ -1,6 +1,12 @@
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3001;
+
+const fs = require('fs');
+const path = require('path');
+
+const viaCepHtmlPage = fs.readFileSync(path.join(__dirname, 'viaCep.html'), 'utf-8');
+
 const pokemons = [
   [
   {
@@ -157,7 +163,9 @@ app.get('/erro', (req, res) => {
   res.send(JSON(series));
 });
 
-
+app.get('/viaCep', (req, res) => {
+  res.send(viaCepHtmlPage);
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
@@ -212,3 +220,4 @@ const html = `
   </body>
 </html>
 `
+const viaCep = ``
