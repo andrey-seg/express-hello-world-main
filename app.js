@@ -77,6 +77,51 @@ const pokemons = [
 ]
 ]
 
+const series  = [
+  {
+    "id": 1,
+    "titulo": "One Piece",
+    "titulo_original": "ONE PIECE",
+    "ano_lancamento": 1999,
+    "tipo": "Anime",
+    "genero": [
+      "Ação",
+      "Aventura",
+      "Fantasia"
+    ],
+    "status": "Em exibição",
+    "sinopse": "Monkey D. Luffy e sua tripulação navegam pelos mares em busca do lendário tesouro One Piece para que Luffy se torne o Rei dos Piratas."
+  },
+  {
+    "id": 2,
+    "titulo": "The Orville",
+    "titulo_original": "The Orville",
+    "ano_lancamento": 2017,
+    "tipo": "Série Live-Action",
+    "genero": [
+      "Ficção Científica",
+      "Comédia",
+      "Drama"
+    ],
+    "status": "Em hiato",
+    "sinopse": "Situada 400 anos no futuro, a série segue as missões da nave exploratória U.S.S. Orville e sua tripulação enquanto navegam pelos desafios do espaço."
+  },
+  {
+    "id": 3,
+    "titulo": "Attack on Titan",
+    "titulo_original": "Shingeki no Kyojin",
+    "ano_lancamento": 2013,
+    "tipo": "Anime",
+    "genero": [
+      "Ação",
+      "Fantasia Sombria",
+      "Mistério"
+    ],
+    "status": "Finalizado",
+    "sinopse": "A humanidade vive confinada atrás de enormes muralhas para se proteger dos Titãs, seres gigantescos devoradores de humanos. O jovem Eren Yeager jura erradicá-los após uma tragédia."
+  }
+]
+
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
 
@@ -101,6 +146,13 @@ app.get('/pokemon', (req, res) => {
   console.log("request at /pokemon");
   res.json(pokemons);
 });
+
+app.get('/series', (req, res) => {
+  console.log("request at /series");
+  res.json(series);
+});
+
+
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
 
